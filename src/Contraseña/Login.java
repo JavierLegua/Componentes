@@ -128,13 +128,13 @@ public class Login extends javax.swing.JFrame {
 
     private void jTextFieldUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioFocusLost
         
-        jTextFieldUsuario.setText("Usuario");
+        
         
     }//GEN-LAST:event_jTextFieldUsuarioFocusLost
 
     private void jPasswordFieldContraseñaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordFieldContraseñaFocusLost
         
-        jPasswordFieldContraseña.setText("Password");
+       
         
     }//GEN-LAST:event_jPasswordFieldContraseñaFocusLost
 
