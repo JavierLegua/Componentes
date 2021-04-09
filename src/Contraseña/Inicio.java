@@ -5,6 +5,10 @@
  */
 package Contraseña;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alumnodaw
@@ -15,7 +19,33 @@ public class Inicio extends javax.swing.JFrame {
      * Creates new form Inicio
      */
     public Inicio() {
+       initComponents();
+       iniciarModelos();
+    }
+    
+    public Inicio(String usuario) {
         initComponents();
+         jLabel1.setText("Hola " + usuario);
+         iniciarModelos();
+    }
+    
+    private void iniciarModelos(){
+       
+        modeloBebidas = new DefaultComboBoxModel<>();
+        modeloPizzas = new DefaultComboBoxModel<>();
+        modeloProductos = new DefaultComboBoxModel<>();
+        modeloPostres = new DefaultComboBoxModel<>();
+        modeloPizzas.addElement("Barbacoa");
+        modeloPizzas.addElement("Hawaiana");
+        modeloPizzas.addElement("Calzonne");
+        modeloBebidas.addElement("Nestea");
+        modeloBebidas.addElement("Fanta");
+        modeloBebidas.addElement("Agua");
+        modeloProductos.addElement("Producto:");
+        modeloProductos.addElement("Pizza");
+        modeloProductos.addElement("Bebida");
+        jComboBoxProducto.setModel(modeloProductos);
+        modeloPostres.addElement("Flan");
     }
 
     /**
@@ -27,31 +57,155 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextFieldBienvenida = new javax.swing.JTextField();
+        jComboBoxProducto = new javax.swing.JComboBox<>();
+        jComboBoxPedido = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jButtonEncargo = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jButtonAñadirProducto = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextFieldBienvenida.setText("Hola Usuario");
+        jComboBoxProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Producto:" }));
+        jComboBoxProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxProductoActionPerformed(evt);
+            }
+        });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jButtonEncargo.setText("Encargar");
+        jButtonEncargo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonEncargoMouseClicked(evt);
+            }
+        });
+
+        jLabel1.setText("Hola Usuario");
+
+        jLabel2.setText("Encargos:");
+
+        jButtonAñadirProducto.setText("Añadir");
+        jButtonAñadirProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonAñadirProductoMouseClicked(evt);
+            }
+        });
+
+        jTextField1.setText("Producto");
+        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField1FocusGained(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(192, 192, 192)
-                .addComponent(jTextFieldBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonEncargo)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxProducto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBoxPedido, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(70, 70, 70)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField1)
+                    .addComponent(jButtonAñadirProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jTextFieldBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(33, 33, 33)
+                                .addComponent(jComboBoxProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBoxPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonEncargo))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonAñadirProducto)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonEncargoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEncargoMouseClicked
+       
+        String producto = "", pedido = "";
+        
+        producto = (String) jComboBoxProducto.getSelectedItem();
+        pedido = (String) jComboBoxPedido.getSelectedItem();
+        
+        jTextArea1.setText(jTextArea1.getText() + "\n" + producto + " - " + pedido);
+        
+        
+    }//GEN-LAST:event_jButtonEncargoMouseClicked
+
+    private void jComboBoxProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxProductoActionPerformed
+
+        int opc;
+        
+        opc = jComboBoxProducto.getSelectedIndex();
+        switch (opc){
+            case 0:
+                JOptionPane.showMessageDialog(rootPane, "Selecciona un producto","", 2);
+                break;
+            case 1:
+                jComboBoxPedido.setModel(modeloPizzas);
+                break;
+            case 2:
+                jComboBoxPedido.setModel(modeloBebidas);
+                break;
+            case 3:
+                jComboBoxPedido.setModel(modeloPostres);
+                break;
+        }
+        
+    }//GEN-LAST:event_jComboBoxProductoActionPerformed
+
+    private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
+        
+        jTextField1.setText("");
+        
+    }//GEN-LAST:event_jTextField1FocusGained
+
+    private void jButtonAñadirProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAñadirProductoMouseClicked
+           
+        String producto = "";
+        
+        producto = jTextField1.getText();
+        modeloProductos.addElement(producto);
+        jTextField1.setText("Producto");
+        
+    }//GEN-LAST:event_jButtonAñadirProductoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -88,7 +242,21 @@ public class Inicio extends javax.swing.JFrame {
         });
     }
 
+    
+    private javax.swing.DefaultComboBoxModel<String> modeloBebidas;
+    private javax.swing.DefaultComboBoxModel<String> modeloPizzas;
+    private javax.swing.DefaultComboBoxModel<String> modeloProductos;
+    private javax.swing.DefaultComboBoxModel<String> modeloPostres;
+            
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField jTextFieldBienvenida;
+    private javax.swing.JButton jButtonAñadirProducto;
+    private javax.swing.JButton jButtonEncargo;
+    private javax.swing.JComboBox<String> jComboBoxPedido;
+    private javax.swing.JComboBox<String> jComboBoxProducto;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
